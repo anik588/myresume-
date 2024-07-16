@@ -12,6 +12,8 @@
   /**
    * Header toggle
    */
+
+
   const headerToggleBtn = document.querySelector('.header-toggle');
 
   function headerToggle() {
@@ -99,11 +101,12 @@
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000
     });
   }
+
 
   /**
    * Initiate Pure Counter
@@ -170,6 +173,7 @@
   /**
    * Init swiper sliders
    */
+/*
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
       let config = JSON.parse(
@@ -185,6 +189,7 @@
   }
 
   window.addEventListener("load", initSwiper);
+*/
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
@@ -227,3 +232,40 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/*
+Portfolio-Section--
+/*/
+document.addEventListener('DOMContentLoaded', () => {
+  const navButtons = document.querySelectorAll('.nav-button');
+  const portfolioItems = document.querySelectorAll('.portfolio-items');
+
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+
+      // Remove active class from all portfolio items
+      portfolioItems.forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Remove active class from all buttons
+      navButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Add active class to the target portfolio items
+      document.getElementById(target).classList.add('active');
+
+      // Add active class to the clicked button
+      button.classList.add('active');
+    });
+  });
+
+  // Set the first section to be active by default
+  document.getElementById('shipping').classList.add('active');
+  navButtons[0].classList.add('active');
+});
+
+
+
