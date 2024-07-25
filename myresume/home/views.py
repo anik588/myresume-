@@ -14,6 +14,13 @@ def home(request):
     }
     return render(request, 'index.html', context)
 
+def portfolio_ecommerce(request):
+    return render(request, 'portfolio-ecommerce.html')
+
+def portfolio_blogsite(request):
+    return render(request, 'portfolio-blogsite.html')
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

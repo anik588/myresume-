@@ -13,7 +13,7 @@
 
   <!-- Favicons -->
   <link href="{% static 'img/portfolio-fav.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
   <!-- Fonts -->
@@ -33,7 +33,12 @@
 
       <style>
     /* Include the CSS directly for easier debugging */
-  /* Add this to your CSS file or <style> section */
+
+  @media (max-width: 768px) {
+  .hero img {
+    height: auto;
+  }
+}
 /* Portfolio Section */
 .portfolio-items-container {
   overflow: hidden;
@@ -298,7 +303,7 @@
       <img src="{% static 'img/resume-bg-2.jpg' %}" alt="">
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
-          <div class="col-lg-9">s
+          <div class="col-lg-9">
             <h2>Sajjad Ahmed Anik</h2>
            <p>I'm <span class="typed" data-typed-items="Web Developer,Expert in React-Django,PhotoShop Designer">Full Stack Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
             <div class="social-links">
@@ -326,7 +331,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="{% static 'img/profile-pic.jpg' %}" class="img-fluid" alt="">
+            <img src="{% static 'img/resume-pic-blue.png' %}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
             <h2>Full Stack Web Developer</h2>
@@ -513,6 +518,7 @@
       </div><!-- End Slider Navigation -->
 
       <!-- Portfolio Items Container -->
+<!--Portfolio Item-1   -->
       <div class="portfolio-items-container">
         <div class="portfolio-items" id="shipping">
           <div class="portfolio-item">
@@ -526,10 +532,10 @@
           </div>
           <!-- About This Project Button -->
           <div class="text-center">
-            <a href="portfolio-details.html" class="btn btn-primary about-btn">About this Project</a>
+            <a href="portfolio-ecommerce/" class="btn btn-primary about-btn">About this Project</a>
           </div>
         </div>
-
+<!--Portfolio Item-2-->
         <div class="portfolio-items" id="blogsite">
           <div class="portfolio-item">
             <img src="{% static 'img/portfolio-pics/blogsite/blogsite-1.jpg' %}" class="img-fluid" alt="Blogsite 1">
@@ -542,10 +548,10 @@
           </div>
           <!-- About This Project Button -->
           <div class="text-center">
-            <a href="portfolio-details.html" class="btn btn-primary about-btn">About this Project</a>
+            <a href="portfolio-blogsite/" class="btn btn-primary about-btn">About this Project</a>
           </div>
         </div>
-
+<!--Portfolio Item-3-->
         <div class="portfolio-items" id="photoshop">
           <div class="portfolio-item">
             <img src="{% static 'img/portfolio-pics/photoshop/anik-ps1.jpg' %}" class="img-fluid" alt="Photoshop 1">
@@ -557,9 +563,9 @@
             <img src="{% static 'img/portfolio-pics/photoshop/bithi-logo-1.jpg' %}" class="img-fluid" alt="Photoshop 3">
           </div>
           <!-- About This Project Button -->
-          <div class="text-center">
-            <a href="portfolio-details.html" class="btn btn-primary about-btn">About this Project</a>
-          </div>
+<!--          <div class="text-center">
+            <a href="portfolio-photoshop/" class="btn btn-primary about-btn">About this Project</a>
+          </div>-->
         </div>
       </div><!-- End Portfolio Items Container -->
 
@@ -580,14 +586,7 @@
       <p>Discover what we offer</p>
     </div>
 
-<!--    <div class="row">
-      <div class="col-lg-6">
-        <div class="service-item" data-aos="fade-up">
-          <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-          <h3>Service Title</h3>
-          <p>Description of the service goes here. You can include more details as needed.</p>
-        </div>
-      </div>-->
+
 
       <div class="col-lg-6">
         <div class="service-img" data-aos="zoom-in" data-aos-delay="300">

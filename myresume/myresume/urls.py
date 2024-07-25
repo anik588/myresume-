@@ -23,4 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Define home view
     path('contact/', views.contact, name='contact'),
+    path('portfolio-ecommerce/', views.portfolio_ecommerce, name='portfolio_ecommerce'),
+    path('portfolio-blogsite/', views.portfolio_blogsite, name='portfolio_blogsite'),
+
 ]
