@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message from Visitor</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 3px;
+    padding: 5px;
+    /* Add the border here */
+    border: 2px solid blue; /* Adjust width, style, and color as needed */
+}
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #0F67B1;
+            color: #FBFBFB;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        .footer img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        .footer span {
+            vertical-align: middle;
+        }
+        .footer .copyright {
+            margin-top: 10px;
+        }
+        .message-content {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>You've got a message from a visitor</h1>
+        </div>
+        <p><strong>Name: </strong> {{ name }}</p>
+        <p><strong>Email: </strong> {{ email }}</p>
+        <div class="message-content">
+            <p><strong>Message: </strong>{{ message }}</p>
+        </div>
+        <div class="footer">
+            <span>sajjadahmed.teccmark.com</span>
+            <div class="copyright">
+                &copy; {{ year }} Sajjad Ahmed. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
