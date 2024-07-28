@@ -575,7 +575,7 @@
 
 <hr color="blue" width="95%" size="2px">
 
-<!-- End Portfolio Section -->\
+<!-- End Portfolio Section -->
 
 <!---Services START------->
 <section id="services" class="services section">
@@ -753,27 +753,28 @@
         </div>
       </div>
       <div class="col-lg-6 mt-5 mt-lg-0">
-        <!-- Alert Message -->
-        <div id="alert-message" class="alert alert-success" role="alert" style="display: none;">
-          Message sent successfully!
+    <!-- Alert Message -->
+    <div id="alert-message" class="alert" role="alert" style="display: none;"></div>
+
+            <!-- Contact Form -->
+            <form action="{% url 'contact' %}" method="post" role="form" class="email-form" id="contact-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_name">Your Name:</label>
+                    <input type="text" name="name" required id="id_name" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Your Email:</label>
+                    <input type="email" name="email" required id="id_email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="id_message">Your Message:</label>
+                    <textarea name="message" cols="40" rows="5" required id="id_message" class="form-control" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
         </div>
-        <form action="{% url 'contact' %}" method="post" role="form" class="email-form" id="contact-form">
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="id_name">Your Name:</label>
-            <input type="text" name="name" required id="id_name" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="id_email">Your Email:</label>
-            <input type="email" name="email" required id="id_email" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="id_message">Your Message:</label>
-            <textarea name="message" cols="40" rows="5" required id="id_message" class="form-control"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-      </div>
+
     </div>
   </div>
 </section>
@@ -854,7 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add active class to the target portfolio items
       document.getElementById(target).classList.add('active');
 
-      // Add active class to the clicked button
+      // Add active class to the clicked button//
       button.classList.add('active');
     });
   });
@@ -882,39 +883,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const divElement = document.getElementById('myDiv'); // Replace 'myDiv' with your div's ID
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
-
-  var form = event.target;
-  var formData = new FormData(form);
-
-  fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    },
-  })
+fetch('http://127.0.0.1:8000/contact/') // Replace with your API endpoint
   .then(response => response.json())
   .then(data => {
-    if (data.success) {
-      // Show the success alert message
-      var alertMessage = document.getElementById('alert-message');
-      alertMessage.style.display = 'block';
-      alertMessage.innerHTML = data.message;
-
-      // Optionally, clear the form fields
-      form.reset();
-    } else {
-      // Handle errors (e.g., display validation errors)
-      console.log(data.errors);
-    }
+    // Assuming the JSON data has a 'message' property
+    divElement.textContent = data.message;
   })
   .catch(error => {
     console.error('Error:', error);
   });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const url = form.getAttribute('action');
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': form.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const alertDiv = document.getElementById('alert-message');
+            alertDiv.style.display = 'block';
+            if (data.success) {
+                alertDiv.className = 'alert alert-success';
+                alertDiv.innerHTML = data.message;
+                form.reset();
+            } else {
+                alertDiv.className = 'alert alert-danger';
+                alertDiv.innerHTML = data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const alertDiv = document.getElementById('alert-message');
+            alertDiv.style.display = 'block';
+            alertDiv.className = 'alert alert-danger';
+            alertDiv.innerHTML = 'An unexpected error occurred.';
+        });
+    });
 });
+
 </script>
 
 </body>
