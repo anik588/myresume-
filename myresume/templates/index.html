@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
+  <!--   font-awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -27,6 +29,7 @@
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="{% static 'css/main.css' %}" rel="stylesheet">
@@ -278,7 +281,72 @@
 .mb-3 {
   margin-bottom: 15px; /* Adjust bottom margin between individual form fields */
 }
-  </style>
+/* github */
+  .github-section {
+      background-color: #161b22;
+      color: white;
+      width:90%;
+      border-radius: 5px; /* Less rounded */
+      margin: 0 auto;
+    }
+    .portfolio-header {
+      background-color: white;
+      color: black;
+      padding: 10px;
+      width:100%;
+      text-align: center;
+    }
+    .github-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; /* Rounded GitHub logo */
+      vertical-align: middle;
+    }
+    .github-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+      text-align: center;
+    }
+    .github-profile-img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    .repo-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding:10px;
+    }
+    .repo-card {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      width: calc(33.33% - 10px); /* 3 repos per row */
+      transition: transform 0.2s ease-in-out;
+
+    }
+    .repo-card:hover {
+      transform: translateY(-5px);
+    }
+    .repo-link {
+      text-decoration: none;
+      color: #58a6ff;
+      transition: color 0.3s;
+    }
+    .repo-link:hover {
+      color: #1f6feb;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .repo-card {
+        width: 100%; /* Full width on mobile */
+      }
+    }
+
+</style>
 </head>
 
 <body class="index-page">
@@ -287,12 +355,13 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+        <li><a href="/#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="/#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+        <li><a href="/#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
+        <li><a href="/#github" ><i class="fa-brands fa-github"></i><span>Github</span></a></li>
+        <li><a href="/#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+        <li><a href="/#testimonials"><i class="fa-regular fa-comment-dots"></i><span>Testimonial</span></a></li>
+        <li><a href="/#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
       </ul>
     </nav>
   </header>
@@ -300,12 +369,12 @@
   <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section light-background">
-      <img src="{% static 'img/resume-bg-2.jpg' %}" alt="">
+      <img src="{% static 'img/portfolio-cover.jpg' %}" alt="">
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <h2>Sajjad Ahmed Anik</h2>
-           <p>I'm <span class="typed" data-typed-items="Web Developer,Expert in React-Django,PhotoShop Designer">Full Stack Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+           <p>I'm a <span class="typed" data-typed-items="Web Developer,Expert in React-Django,PhotoShop Designer">Full Stack Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
             <div class="social-links">
               <a href="https://x.com/sajjad_anik588"><i class="bi bi-twitter"></i></a>
               <a href="https://facebook.com/sa.anik24"><i class="bi bi-facebook"></i></a>
@@ -351,7 +420,7 @@
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>24</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.Sc. in Physics</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>sajjad.anik24@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>anik@teccmark.com</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
               </div>
@@ -452,7 +521,7 @@
               <ul>
                 <li>201 North Shahjahanpur, Dhaka-1219, Bangladesh</li>
                 <li>+880 13037 60958</li>
-                <li>sajjad.anik24@gmail.com</li>
+                <li>anik@teccmark.com</li>
               </ul>
             </div><!-- End Resume Item -->
 
@@ -499,6 +568,29 @@
         </div>
       </section><!-- /Resume Section -->
 
+<!--      GitHub Section Start   -->
+
+<div class="github-section" id="github">
+  <!-- Portfolio Header with GitHub Logo -->
+  <div class="portfolio-header">
+    <h2>My GitHub Portfolio <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="github-logo" alt="GitHub Logo"></h2>
+  </div>
+
+  <!-- GitHub Profile -->
+  <div class="github-profile" >
+    <img id="github-profile-img" class="github-profile-img" src="" alt="Profile Image">
+    <h3 id="github-username" class="mb-0 mt-3" style="color: white;"></h3>
+    <p id="github-bio" class="mt-2" style="font-size: 0.9rem;"></p> <!-- GitHub bio under the name -->
+  </div>
+
+  <!-- Section Title -->
+  <h4 class="text-center"style="color: green;">My GitHub Repositories</h4>
+
+  <!-- Recent Repositories -->
+  <div id="github-repos" class="repo-list"></div>
+</div>
+<!--            Github Section END    -->
+
 <!-- Portfolio Section START -->
   <!-- Portfolio Section START -->
 <section id="portfolio" class="portfolio section">
@@ -513,7 +605,7 @@
       <!-- Slider Navigation -->
       <div class="slider-nav text-center">
         <button class="nav-button" data-target="shipping">E-commerce</button>
-        <button class="nav-button" data-target="blogsite">Blogsite</button>
+        <button class="nav-button" data-target="newspaper-site">newspaper-site</button>
         <button class="nav-button" data-target="photoshop">PhotoShop</button>
       </div><!-- End Slider Navigation -->
 
@@ -536,19 +628,19 @@
           </div>
         </div>
 <!--Portfolio Item-2-->
-        <div class="portfolio-items" id="blogsite">
+        <div class="portfolio-items" id="newspaper-site">
           <div class="portfolio-item">
-            <img src="{% static 'img/portfolio-pics/blogsite/blogsite-1.jpg' %}" class="img-fluid" alt="Blogsite 1">
+            <img src="{% static 'img/portfolio-pics/newspaper-site/newspaper-site-1.jpg' %}" class="img-fluid" alt="newspaper-site 1">
           </div>
           <div class="portfolio-item">
-            <img src="{% static 'img/portfolio-pics/blogsite/blogsite-2.jpg' %}" class="img-fluid" alt="Blogsite 2">
+            <img src="{% static 'img/portfolio-pics/newspaper-site/newspaper-site-2.jpg' %}" class="img-fluid" alt="newspaper-site 2">
           </div>
           <div class="portfolio-item">
-            <img src="{% static 'img/portfolio-pics/blogsite/blogsite-mobile-view.jpg' %}" class="img-fluid" alt="Blogsite 3">
+            <img src="{% static 'img/portfolio-pics/newspaper-site/newspaper-site-3.jpg' %}" class="img-fluid" alt="newspaper-site-3">
           </div>
           <!-- About This Project Button -->
           <div class="text-center">
-            <a href="portfolio-blogsite/" class="btn btn-primary about-btn">About this Project</a>
+            <a href="portfolio-newspaper-site/" class="btn btn-primary about-btn">About this Project</a>
           </div>
         </div>
 <!--Portfolio Item-3-->
@@ -575,32 +667,6 @@
 
 <hr color="blue" width="95%" size="2px">
 
-<!-- End Portfolio Section -->
-
-<!---Services START------->
-<section id="services" class="services section">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Discover what we offer</p>
-    </div>
-
-
-
-      <div class="col-lg-6">
-        <div class="service-img" data-aos="zoom-in" data-aos-delay="300">
-          <img src="{% static 'img/service-rate.png' %}" class="img-fluid" alt="Service Image">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!---Services END------->
-<!-- Testimonials Section -->
-
-    <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section">
 
     <!-- Section Title -->
@@ -647,13 +713,14 @@
                                 <div class="testimonial-content">
                                     <p>
                                         <i class="bi bi-quote quote-icon-left"></i>
-                                        <span>Our blog site has never been better. The redesign has made it much easier for our readers to navigate and find the content they are looking for. Great job!</span>
+                                        <span>Our newspaper site has never been better. The redesign has made it much easier for our readers to navigate and find the content they are looking for. Great job!</span>
+                                        <span>Our newspaper site has never been better. The redesign has made it much easier for our readers to navigate and find the content they are looking for. Great job!</span>
                                         <i class="bi bi-quote quote-icon-right"></i>
                                     </p>
                                     <h3>Oliver Smith</h3>
                                     <h4>Editor, UK</h4>
                                     <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                     </div>
                                 </div>
                             </div>
@@ -672,7 +739,7 @@
                                 <div class="testimonial-content">
                                     <p>
                                         <i class="bi bi-quote quote-icon-left"></i>
-                                        <span>The photo editing project was delivered on time and exceeded our expectations. The final images were stunning and exactly what we needed for our marketing campaign.</span>
+                                        <span>The photo editing project was delivered on time and exceeded our expectations. The final images were exactly what we needed for our marketing campaign.</span>
                                         <i class="bi bi-quote quote-icon-right"></i>
                                     </p>
                                     <h3>Liu Wei</h3>
@@ -682,7 +749,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-2 text-center">
+                            <div class="col-lg-2 text-center mb-2">
                                 <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="img-fluid testimonial-img" alt="">
                             </div>
                         </div>
@@ -703,7 +770,7 @@
                                     <h3>Amelia Brown</h3>
                                     <h4>Entrepreneur, Australia</h4>
                                     <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                     </div>
                                 </div>
                             </div>
@@ -743,7 +810,7 @@
           <div class="email">
             <i class="bi bi-envelope"></i>
             <h4>Email:</h4>
-            <p>sajjad.anik24@gmail.com</p>
+            <p>anik@teccmark.com</p>
           </div>
           <div class="phone">
             <i class="bi bi-phone"></i>
@@ -935,7 +1002,52 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+<!-- Optional Bootstrap JS and Font Awesome for icons -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const githubUsername = "anik588";
+  const apiUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=3`; // Fetch 3 repos
+  const userApiUrl = `https://api.github.com/users/${githubUsername}`;
+
+  // Fetch and display GitHub profile
+  async function fetchGitHubProfile() {
+    const response = await fetch(userApiUrl);
+    const user = await response.json();
+
+    document.getElementById("github-profile-img").src = user.avatar_url;
+    document.getElementById("github-username").textContent = user.name || user.login;
+    document.getElementById("github-bio").textContent = user.bio || "No bio available";
+  }
+
+  // Fetch and display recent repositories
+  async function fetchGitHubRepos() {
+    const response = await fetch(apiUrl);
+    const repos = await response.json();
+    const reposContainer = document.getElementById("github-repos");
+
+    repos.forEach(repo => {
+      // Creating repository cards dynamically
+      const repoCard = `
+        <div class="repo-card">
+          <h5 class="repo-title mb-1">
+            <a href="${repo.html_url}" class="repo-link" target="_blank">${repo.name}</a>
+          </h5>
+          <p class="mb-0">${repo.description || "No description available"}</p>
+        </div>
+      `;
+      reposContainer.innerHTML += repoCard;
+    });
+  }
+
+  // Fetch profile and repositories on page load
+  fetchGitHubProfile();
+  fetchGitHubRepos();
+</script>
 </body>
 
 </html>

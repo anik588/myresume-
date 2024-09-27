@@ -17,41 +17,9 @@ def home(request):
 def portfolio_ecommerce(request):
     return render(request, 'portfolio-ecommerce.html')
 
-def portfolio_blogsite(request):
-    return render(request, 'portfolio-blogsite.html')
+def portfolio_newspaper_site(request):
+    return render(request, 'portfolio-newspapar-site.html')
 
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from django.core.mail import send_mail
-from .forms import ContactForm  # Assuming ContactForm is defined in your app
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from django.core.mail import send_mail
-from django.conf import settings
-from .forms import ContactForm
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from django.core.mail import EmailMultiAlternatives
-from django.conf import settings
-from .forms import ContactForm
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from django.core.mail import EmailMultiAlternatives
-from django.conf import settings
-from .forms import ContactForm
-import datetime
-
-from django.shortcuts import render
-from django.http import JsonResponse
-from django.core.mail import EmailMultiAlternatives
-from django.conf import settings
-from django.template.loader import render_to_string
-from .forms import ContactForm
-import datetime  # Ensure datetime is imported
 
 from django.shortcuts import render
 from django.http import JsonResponse
